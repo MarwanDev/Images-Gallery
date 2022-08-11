@@ -1,15 +1,17 @@
 from flask import Flask, request
+from flask_cors import CORS
 import requests
 
 UNSPLASH_URL='https://api.unsplash.com/photos/random'
 UNSPLASH_KEY='t11X0zZNEoDJNqc7e3M0Uj3RIV37FQAzf5g9yhk9k8U'
-DEBUG=os.environ.get("DEBUG", True)
+# DEBUG=bool(os.environ.get("DEBUG", True))
 if not UNSPLASH_KEY:
   raise EnvironmentError("Please insert an UNSPLASH_KEY")
 app = Flask(__name__)
 
+CORS(app)
 
-app.config["DEBUG"] = DEBUG
+# app.config["DEBUG"] = DEBUG
 @app.route("/new-image")
 def new_image():
     word=request.args.get("query")
