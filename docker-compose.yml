@@ -1,11 +1,13 @@
 version: '3'
 services:
   frontend:
+    restart: always
     build: ./frontend
     ports:
       - '3000:3000'
 
   api:
+    restart: always
     build: ./api
     ports:
       - '5050:5050'
