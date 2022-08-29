@@ -1,6 +1,7 @@
 from flask import Flask, request
 from flask import request
 from flask_cors import CORS
+from mongo_client import insert_test_document
 import requests
 
 UNSPLASH_URL = 'https://api.unsplash.com/photos/random'
@@ -13,6 +14,7 @@ app = Flask(__name__)
 CORS(app)
 
 # app.config["DEBUG"] = DEBUG
+insert_test_document()
 
 
 @app.route("/new-image")
